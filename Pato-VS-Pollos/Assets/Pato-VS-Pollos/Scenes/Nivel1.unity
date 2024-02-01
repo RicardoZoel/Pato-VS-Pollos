@@ -423,11 +423,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6144314058739496534, guid: dc0101cca4f3364478489779553131c4, type: 3}
   m_PrefabInstance: {fileID: 58084271}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &65976154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6646127140113524003, guid: ff30a722b242a944f86dd4e0227adf5d, type: 3}
-  m_PrefabInstance: {fileID: 1151902651189381350}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &86910088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1031,7 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4728024ee90d5d0438ce3d21ea94d7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 65976154}
+  target: {fileID: 1571136366}
   derechaMax: -0.5
   izquierdaMax: 19.5
   alturaMax: -0.5
@@ -8163,6 +8158,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6144314058739496534, guid: dc0101cca4f3364478489779553131c4, type: 3}
   m_PrefabInstance: {fileID: 1372337782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1571136366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4404491139543871753, guid: 46234632b99905a4cb903c9740d2671d, type: 3}
+  m_PrefabInstance: {fileID: 4466708239132966926}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591428984
 GameObject:
@@ -16583,7 +16583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6646127140113524003, guid: ff30a722b242a944f86dd4e0227adf5d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7675490777444645459, guid: ff30a722b242a944f86dd4e0227adf5d, type: 3}
       propertyPath: groundCheck
@@ -16595,7 +16595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7675490777444645459, guid: ff30a722b242a944f86dd4e0227adf5d, type: 3}
       propertyPath: groundLayer.m_Bits
-      value: 0
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16789,6 +16789,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1145532049468626022, guid: 46234632b99905a4cb903c9740d2671d, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2198159256694075773, guid: 46234632b99905a4cb903c9740d2671d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -16839,7 +16843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4404491139543871753, guid: 46234632b99905a4cb903c9740d2671d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

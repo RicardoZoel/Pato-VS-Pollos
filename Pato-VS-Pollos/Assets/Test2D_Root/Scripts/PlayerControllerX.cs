@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerControllerX : MonoBehaviour
 {
@@ -35,7 +37,8 @@ public class PlayerControllerX : MonoBehaviour
     void Update()
     {
         Movment();
-        Jump();
+        //Jump();
+        Jump2();
         isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRaduis, groundLayer); //chequer de gruand en vase al enmpty posicionado en el objeto player
         anim.SetBool("Jump", !isGrounded);
         if (!isGrounded)
@@ -59,7 +62,7 @@ public class PlayerControllerX : MonoBehaviour
         //Modificamos la X del RB que sera input* Speed
         playerRB.velocity = new Vector2(horizontalInput * speedTemporal, playerRB.velocity.y);
 
-        if (horizontalInput < 0) 
+        if (horizontalInput < 0)
         {
             transform.eulerAngles = new Vector3(0, -180, 0);
             anim.SetBool("Walk", true);
@@ -88,7 +91,7 @@ public class PlayerControllerX : MonoBehaviour
                     {
                         haveDobleJump = false;
                         playerRB.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-                        
+
                     }
                 }
             }
@@ -97,6 +100,21 @@ public class PlayerControllerX : MonoBehaviour
                 playerRB.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             }
         }
+    }
+    void Jump2()
+    {
+        bool pressed = Input.GetKey(KeyCode.Space);
+        if ((pressed && isGrounded))
+            playerRB.velocity = new Vector2(playerRB.velocity.x, jumpForce);
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isGrounded && haveDobleJump)
+        {
+            haveDobleJump = false;
+            playerRB.velocity = new Vector2(playerRB.velocity.x, jumpForce);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && playerRB.velocity.y > 0f)
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);
     }
     void Attack() { }
     void Flip() { }
