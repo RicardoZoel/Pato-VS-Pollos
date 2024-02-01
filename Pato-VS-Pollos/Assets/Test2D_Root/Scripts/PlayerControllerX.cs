@@ -62,16 +62,16 @@ public class PlayerControllerX : MonoBehaviour
         if (horizontalInput < 0) 
         {
             transform.eulerAngles = new Vector3(0, -180, 0);
-            anim.SetBool("Run", true);
+            anim.SetBool("Walk", true);
         }
         if (horizontalInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
-            anim.SetBool("Run", true);
+            anim.SetBool("Walk", true);
         }
         if (horizontalInput == 0)
         {
-            anim.SetBool("Run", false);
+            anim.SetBool("Walk", false);
         }
     }
     void Jump()
