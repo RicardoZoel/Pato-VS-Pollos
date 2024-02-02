@@ -23,7 +23,7 @@ public class PlayerControllerX : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float groundCheckRaduis;
     [SerializeField] GameObject groundCheck;
-
+    [SerializeField] Vector3 spawn;
 
     //[SerializeField] private float gravity;
 
@@ -31,6 +31,7 @@ public class PlayerControllerX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawn=transform.position;
         groundCheck = GameObject.Find("GroundCheck");
         playerRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -125,4 +126,9 @@ public class PlayerControllerX : MonoBehaviour
     }
     void Attack() { }
     void Flip() { }
+    public void Die() {
+        Debug.Log("pringo");
+        transform.position = spawn;
+        GameObject.Find("Main Camera").GetComponent<Follow>().ResetStart();
+    }
 }

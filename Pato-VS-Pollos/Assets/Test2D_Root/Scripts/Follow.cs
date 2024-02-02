@@ -24,12 +24,15 @@ public class Follow : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        ResetStart();
+    }
+    public void ResetStart()
+    {
         posX = target_poseX + derechaMax;
         posY = target_poseY + alturaMax;
         transform.position = Vector3.Lerp(transform.position, new Vector3(posX, posY, -1), 1);
 
     }
-
     void Move_Cam()
     {
         if (encendida)
