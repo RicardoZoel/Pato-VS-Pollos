@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Presets;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerControllerX : MonoBehaviour
@@ -23,6 +25,9 @@ public class PlayerControllerX : MonoBehaviour
     [SerializeField] GameObject groundCheck;
 
 
+    //[SerializeField] private float gravity;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,7 @@ public class PlayerControllerX : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         speedTemporal = speed;
+        //gravity = playerRB.gravityScale;
 
     }
 
@@ -37,8 +43,7 @@ public class PlayerControllerX : MonoBehaviour
     void Update()
     {
         Movment();
-        //Jump();
-        Jump2();
+        //Jump2();
         isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRaduis, groundLayer); //chequer de gruand en vase al enmpty posicionado en el objeto player
         anim.SetBool("Jump", !isGrounded);
         if (!isGrounded)
@@ -48,13 +53,14 @@ public class PlayerControllerX : MonoBehaviour
         }
         else
         {
-
+            playerRB.gravityScale = 1;
             speedTemporal = speed;
             if (boots)
             {
                 haveDobleJump = true;
             }
         }
+
     }
     void Movment()
     {
@@ -77,30 +83,31 @@ public class PlayerControllerX : MonoBehaviour
             anim.SetBool("Walk", false);
         }
     }
-    void Jump()
+    public void Jump(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((context.performed && isGrounded))
+            playerRB.velocity = new Vector2(playerRB.velocity.x, jumpForce);
+
+        if (context.performed && !isGrounded && haveDobleJump)
         {
-            if (!isGrounded)
-            {
-
-                if (!boots) { return; }
-                else
-                {
-                    if (haveDobleJump)
-                    {
-                        haveDobleJump = false;
-                        playerRB.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-
-                    }
-                }
-            }
-            else
-            {
-                playerRB.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-            }
+            haveDobleJump = false;
+            playerRB.velocity = new Vector2(playerRB.velocity.x, jumpForce);
         }
+
+        if (context.canceled && playerRB.velocity.y > 0f)
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);
     }
+
+    public void Glide(InputAction.CallbackContext context)
+    {
+        bool isDown = false;
+        if (playerRB.velocity.y < 0) isDown = true;
+        if ((context.performed && !isGrounded && isDown))
+            playerRB.gravityScale = 0.2f;
+
+
+    }
+    //Sin el new sistem input
     void Jump2()
     {
         bool pressed = Input.GetKey(KeyCode.Space);
