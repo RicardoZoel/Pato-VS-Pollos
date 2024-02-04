@@ -842,7 +842,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2118,6 +2118,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f19973311650a004ea3a2821b49d92f5, type: 3}
   - {fileID: 8300000, guid: 60275c3062d585544b6d4f7e27c5efc4, type: 3}
   - {fileID: 8300000, guid: 57df11ad48b4b674dbb9ed8b63a4b1ee, type: 3}
+  - {fileID: 8300000, guid: 7797c3c3785705844b1a5720610a3c65, type: 3}
   sfxList:
   - {fileID: 8300000, guid: 4dde92805d92bd841968e6085f1d6795, type: 3}
   - {fileID: 8300000, guid: 25f70cc7718ccd047a22ac38c60755b1, type: 3}
