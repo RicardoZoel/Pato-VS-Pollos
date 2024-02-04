@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PatoLevl3
+  m_Controller: {fileID: 9100000, guid: cc9d83a651950f74d8e3ba4cdc094cef, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 83fbd198f3467c346ba1fb808570deb5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3c8288f63db45d440808c5e72f23b199, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a0a268a1ee5a74e46bef9d85db089ef9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: afeab0c2d51655143b16f3c0b5a3c4f3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 149ec165b129ad54cb57ca2878781ad1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c3033829c4efcf84d8c1d80d8f650f4c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ba4d4397bffcb7240ac4f8ccc74c76eb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e252218606234f44d90afc853b3302e8, type: 2}

@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Pato-VS-Pollos/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Pato-VS-Pollos/Scenes/MainMenu.unity
+    guid: a739988525257544e9200f761be3b4ef
   - enabled: 1
-    path: Assets/Pato-VS-Pollos/Scenes/Nivel1.unity
-    guid: 09ae6f0757371594d9afa79b49cce00c
+    path: Assets/Pato-VS-Pollos/Scenes/tutorial.unity
+    guid: 30781b44b62780c4cb9c3cdc8a6e4474
+  - enabled: 1
+    path: Assets/Pato-VS-Pollos/Scenes/Nivel_1.unity
+    guid: 332f64b8bb146824f9584d86beb21ee3
+  - enabled: 1
+    path: Assets/Pato-VS-Pollos/Scenes/Nivel_2.unity
+    guid: bc1b3f6e58f83a44b9bf0721930d762a
+  - enabled: 1
+    path: Assets/Pato-VS-Pollos/Scenes/Nivel_3.unity
+    guid: febd214f7dd793c40bfca28b4b5e3ffe
+  - enabled: 1
+    path: Assets/Pato-VS-Pollos/Scenes/FinalMenu.unity
+    guid: 23653fc2e3dd9d24bb2a0ea5561ecfdb
   m_configObjects: {}

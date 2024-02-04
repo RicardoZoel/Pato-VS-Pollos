@@ -12,12 +12,17 @@ public class EnemyPlatform : MonoBehaviour
     bool isDead;
     [SerializeField] Transform[] rutePoints;
 
+    [Header("Modes")]
+    [SerializeField] bool SpecialDie;
+    [SerializeField] bool AngryMode;
+    [SerializeField] bool haveAttack;
+
     int i;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Angry());
+        if (AngryMode) StartCoroutine(Angry());
         temporalSpeed = speed;
         isDead = false;
         anim = GetComponent<Animator>();
@@ -57,13 +62,23 @@ public class EnemyPlatform : MonoBehaviour
         {
             if (transform.position.y + 0.5 < collision.transform.position.y)
             {
-                isDead=true;
-                anim.SetTrigger("DIE");
+                isDead = true;
                 GetComponent<BoxCollider2D>().enabled = false;
-                Destroy(gameObject,0.22f);
-                transform.parent.gameObject.SetActive(false);
+                if (SpecialDie && Random.Range(0, 10)==1)
+                {
+                    AudioManager.Instance.PlaySFX(3);
+                    anim.SetTrigger("SpecialDie");
+                    Destroy(gameObject, 0.50f);
+                }
+                else
+                {
+                    AudioManager.Instance.PlaySFX(3);
+                    anim.SetTrigger("DIE");
+                    Destroy(gameObject, 0.27f);
+                }
+                //transform.parent.gameObject.SetActive(false);
             }
-            else 
+            else
             {
                 collision.gameObject.GetComponent<PlayerControllerX>().Die();
             }
